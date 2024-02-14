@@ -1,0 +1,29 @@
+
+.container {
+    padding: 1%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-style: italic;
+    font-weight: bold;
+}
+ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+li {
+    display: inline;
+}
+a {
+    text-decoration: none;
+    color: #000000;
+    transition: 0.5s ease-in-out;
+}
+a:hover {
+    opacity: calc(0.6);
+}
