@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&display=swap');
+* {
+    font-family: 'Manjari', sans-serif;
+}
+body {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
