@@ -1,3 +1,7 @@
+main {
+    font-family: 'Manjari', Arial, Helvetica, sans-serif;
+    font-weight: 700;
+}
 .container {
     padding: 5% 2%;
     display: flex;
@@ -6,7 +10,10 @@
 .containersm {
     padding: 5% 2%;
     display: flex;
-
+}
+.containersecond {
+    padding: 5% 2%;
+    display: flex;
 }
 .containerlast {
     padding: 5% 2%;
@@ -37,7 +44,7 @@ section {
     width: 50%;
     background-image: url('../../../assets/image3.avif');
     background-repeat: no-repeat;
-    background-size: 600px;
+    background-size: cover;
     border-radius: 30px;
     height: 30vh;
 }
@@ -83,4 +90,44 @@ section {
     color: rgb(0, 125, 125);
     border: 2px solid rgb(0, 125, 125);
     border-radius: 20px;
+}
+/* Media Queries Start Here */
+@media (max-width: 1000px) {
+    .containersm {
+        padding: 1% 1%;
+        display: flex;
+        flex-direction: column;
+        margin-left: 15px;
+        align-items: flex-start;
+        text-align: center;
+        justify-content: center;
+        height: 50vh;
+        /* border: 2px solid #000; */
+    }
+    .sectiontitle {
+        font-size: 2.8vh;
+    }
+    .picture, .picture2, .picture3 {
+        width: 70vw;
+        height: 30vh;
+        margin: 10px 10px;
+    }
+    .picture2 {
+        width: 70vw;
+        height: 25vh;
+    }
+    .sectionlasttitle {
+        font-size: 2.8vh;
+        text-align: left;
+    }
+    .containerlast {
+        align-items: flex-start;
+    }
+    #btn {
+        width: 30vw;
+        height: 5vh;
+    }
+    .containersecond {
+        flex-direction: column-reverse;
+    }
 }

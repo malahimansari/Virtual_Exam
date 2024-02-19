@@ -5,12 +5,14 @@
   "main": "db.js",
   "scripts": {
     "start": "node backend/server.js",
-    "dev": "nodemon backend/server.js"
+    "dev": " \"concurrently\" nodemon backend/server.js \"npm run client\"",
+    "client" : "npm run dev --prefix client"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "concurrently": "^8.2.2",
     "config": "^3.3.11",
     "dotenv": "^16.4.2",
     "express": "^4.18.2",
