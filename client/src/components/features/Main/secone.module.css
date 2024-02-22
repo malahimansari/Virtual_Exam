@@ -13,6 +13,7 @@ main {
 }
 .containersecond {
     padding: 5% 2%;
+    
     display: flex;
 }
 .containerlast {
@@ -105,19 +106,21 @@ section {
         /* border: 2px solid #000; */
     }
     .sectiontitle {
-        font-size: 2.8vh;
+        font-size: 3.3vh;
+        margin: 2% 2%;
     }
     .picture, .picture2, .picture3 {
         width: 70vw;
         height: 30vh;
-        margin: 10px 10px;
+        margin: 15px 10px;
     }
     .picture2 {
         width: 70vw;
         height: 25vh;
+        margin-bottom: 5%;
     }
     .sectionlasttitle {
-        font-size: 2.8vh;
+        font-size: 3.3vh;
         text-align: left;
     }
     .containerlast {

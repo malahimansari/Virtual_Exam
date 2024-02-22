@@ -1,4 +1,8 @@
-
+header {
+    background-color: rgb(26, 26, 26);
+    color: white;
+   
+}
 .container {
     padding: 1%;
     display: flex;
@@ -9,6 +13,7 @@
     font-size: 30px;
     font-family: 'Manjari', Arial, Helvetica, sans-serif;
     font-weight: 700;
+    cursor: pointer;
 }
 ul {
     list-style: none;
@@ -20,7 +25,7 @@ li {
 }
 a {
     text-decoration: none;
-    color: #000000;
+    color: #fff;
     transition: 0.5s ease-in-out;
 }
 a:hover {
