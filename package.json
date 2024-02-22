@@ -5,7 +5,7 @@
   "main": "db.js",
   "scripts": {
     "start": "node backend/server.js",
-    "dev": " \"concurrently\" nodemon backend/server.js \"npm run client\"",
+    "dev": " concurrently \"nodemon backend/server.js\" \"npm run client\"",
     "client" : "npm run dev --prefix client"
   },
   "author": "",
