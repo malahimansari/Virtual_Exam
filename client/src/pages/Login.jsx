@@ -1,26 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
+import Navbar from "../components/common/Navbar/main";
 
 const Login = () => {
   const [user, setUser] = useState({
-    username: "",
     email: "",
     password: "",
-    role: "",
   });
 
   const inputHandler = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
-    console.log(user);
+    setUser((prevUser) => ({ ...user, [e.target.name]: e.target.value }));
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("127.0.0.1:262/api/auth/signIn", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    });
+    const response = await fetch(
+      "http://localhost:8080/api/v1/users/register_user",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      }
+    );
     console.log(response);
   };
   return (

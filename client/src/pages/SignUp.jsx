@@ -1,37 +1,60 @@
 import React, { useState } from "react";
 import Navbar from "../components/common/Navbar/main";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useState({
-    username: "",
+    name: "",
     email: "",
     password: "",
-    role: "",
+    // role: "",
   });
 
   const inputHandler = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
-    console.log(user);
+    setUser((prevUser) => ({ ...prevUser, [e.target.name]: e.target.value }));
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("127.0.0.1:262/api/auth/signUp", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    });
-    console.log(response);
+    console.log(user);
+    try {
+      const response = await fetch(
+        "http://localhost:8080/api/v1/users/register_user",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(user),
+        }
+      );
+      if (response.ok) {
+        setUser({
+          name: "",
+          email: "",
+          password: "",
+        });
+        navigate("/logIn");
+        const data = await response.json();
+        console.log(data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <>
       <Navbar />
-      <form onSubmit={(event) => handleSubmit}>
+      <form
+        onSubmit={(event) => {
+          handleSubmit(event);
+        }}
+      >
         <label htmlFor="username">Enter your name</label>
         <br />
         <input
-          name="username"
+          name="name"
           type="text"
           placeholder="username"
           onChange={inputHandler}
@@ -54,7 +77,7 @@ const SignUp = () => {
           placeholder="**********"
           onChange={inputHandler}
         />
-        <br />
+        {/* <br />
         <label htmlFor="role">Your Role</label>
         <br />
         <input
@@ -80,7 +103,10 @@ const SignUp = () => {
           onChange={inputHandler}
         />{" "}
         Both of them
-        <br />
+        <br /> */}
+        <p>
+          Already signed up,<Link to={"/logIn"}>LogIn</Link>
+        </p>
         <button type="submit">Register</button>
       </form>
     </>
