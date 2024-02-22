@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Navbar from "../components/common/Navbar/main";
 
 const Login = () => {
   const [user, setUser] = useState({
@@ -12,21 +11,33 @@ const Login = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(
-      "http://localhost:8080/api/v1/users/register_user",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(user),
+    try {
+      const response = await fetch(
+        "http://localhost:8080/api/v1/users/register_user",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(user),
+        }
+      );
+      if (response.ok) {
+        setUser({
+          name: "",
+          email: "",
+          password: "",
+        });
+        navigate("/");
+        const data = await response.json();
+        storeTokenInLS(data.token);
       }
-    );
-    console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <>
-      <Navbar />
       <form onSubmit={(event) => handleSubmit}>
         <label htmlFor="email">Enter your email address</label>
         <br />

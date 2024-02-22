@@ -1,5 +1,4 @@
 import React from 'react'
-import Navbar from '../components/common/Navbar/main'
 import styled from 'styled-components';
 
 const Box = styled.div `
@@ -16,7 +15,6 @@ const Box = styled.div `
 function About() {
   return (
     <>
-      <Navbar />
       <Box>
         <h1>Who are we?</h1>
           <div className='container'>

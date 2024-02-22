@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import Navbar from "../components/common/Navbar/main";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../store/auth";
 
 const SignUp = () => {
   const navigate = useNavigate();
+  const { storeTokenInLS } = useAuth();
+
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -17,7 +19,6 @@ const SignUp = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(user);
     try {
       const response = await fetch(
         "http://localhost:8080/api/v1/users/register_user",
@@ -37,7 +38,7 @@ const SignUp = () => {
         });
         navigate("/logIn");
         const data = await response.json();
-        console.log(data);
+        storeTokenInLS(data.token);
       }
     } catch (error) {
       console.log(error);
@@ -45,7 +46,6 @@ const SignUp = () => {
   };
   return (
     <>
-      <Navbar />
       <form
         onSubmit={(event) => {
           handleSubmit(event);
