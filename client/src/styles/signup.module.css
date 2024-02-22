@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    padding: 10%;
+}
+#form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 5%;
+}
+#form label {
+    font-size: 20px;
+}
+#form input {
+    border: 2px solid darkcyan;
+    height: 25px;
+    padding: 2%;
+    border-radius: 10px;
+}
+#form input::placeholder {
+    color: black;
+    opacity: calc(0.8);
+    font-size: 15px;
+}
+#form .btnSubmit {
+    height: 40px;
+    background-color: darkcyan;
+    border: none;
+    color: #ffff;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: 0.4s ease-in-out;
+}
+#form .btnSubmit:hover {
+    background-color: #fff;
+    color: darkcyan;
+    border: 2px solid darkcyan;
+}
