@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import styles from './navbar.module.css';
 function Navbar() {
   const navigateTo = useNavigate();
-
+  const [buttonToggler, setButtonToggler] = useState();
   const navigatorHome = () => {
     navigateTo('/');
   }

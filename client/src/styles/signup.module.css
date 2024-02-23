@@ -8,8 +8,10 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    padding: 10px;
+    padding: 10% 5%;
     border-radius: 5%;
+    border: 1px solid darkcyan;
+    box-shadow: darkcyan 0px 3px 10px;
 }
 #form label {
     font-size: 20px;
@@ -25,6 +27,7 @@
     opacity: calc(0.8);
     font-size: 15px;
 }
+
 #form .btnSubmit {
     height: 40px;
     background-color: darkcyan;
@@ -38,4 +41,18 @@
     background-color: #fff;
     color: darkcyan;
     border: 2px solid darkcyan;
+}
+#form .btnBack {
+    width: 90px;
+    height: 50px;
+    font-size: 22px;
+    color: darkcyan;
+    border: none;
+    border-radius: 30px;
+    background: transparent;
+    justify-content: center;
+    transition: 0.3s ease-in-out;
+}
+#form .btnBack:hover {
+    background-color: rgb(197, 194, 194);
 }
