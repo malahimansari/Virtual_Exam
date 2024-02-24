@@ -40,8 +40,7 @@ Monitor student progress during the exam with navigation functions and timer scr
 
 - HTML5, CSS3, JavaScript (ES6+)
 - React.js for creating interactive user interfaces
-- Material-UI for stylish designs and visually appealing objects
-- Bootstrap for more styling.
+- Custom styling using styled-components and module.css
 ### Backend:
 
 - Node .js for server-side development
