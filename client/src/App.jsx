@@ -1,5 +1,4 @@
 import "./App.css";
-
 import Navbar from "./components/common/Navbar/main";
 import Main from "./components/features/Main/main";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -8,6 +7,9 @@ import Help from "./pages/Help";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import { LogOut } from "./pages/LogOut.jsx";
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (

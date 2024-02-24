@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import {Link, useNavigate} from 'react-router-dom';
 import styles from "./navbar.module.css";
 import { useAuth } from "../../../store/auth";
 
@@ -10,7 +10,7 @@ function Navbar() {
       <header>
         <nav>
           <div className={styles.container}>
-            <div className={styles.logo}>
+            <div className={styles.logo} onClick={navigatorHome} >
               <i className="bi bi-backpack2-fill"></i> Quizify
             </div>
             <ul>
