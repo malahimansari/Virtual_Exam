@@ -1,4 +1,5 @@
 import React from "react";
+import Navbar from "../components/common/Navbar/main";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
 
@@ -12,7 +13,6 @@ function Help() {
   }
   return (
     <>
-      <Navbar />
         <div>Help page in construction</div>
         <button onClick={gobackHandler}>Go Back</button>
     </>

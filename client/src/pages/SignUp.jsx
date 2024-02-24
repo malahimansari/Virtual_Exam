@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
-
+import styles from '../styles/signup.module.css';
 const SignUp = () => {
   const navigate = useNavigate();
   const { storeTokenInLS } = useAuth();
@@ -51,13 +51,16 @@ const SignUp = () => {
     }
   };
   return (
-    <>
-      <form
+    <div className={styles.container}>
+
+      
+      <form id={styles.form}
         onSubmit={(event) => {
           handleSubmit(event);
         }}
       >
-        <label htmlFor="username">Enter your name</label>
+        <h1>Register </h1>
+        <label htmlFor="username">Username</label>
         <br />
         <input
           name="name"
@@ -66,7 +69,7 @@ const SignUp = () => {
           onChange={inputHandler}
         />
         <br />
-        <label htmlFor="email">Enter your email address</label>
+        <label htmlFor="email">Email address</label>
         <br />
         <input
           name="email"
@@ -75,12 +78,12 @@ const SignUp = () => {
           onChange={inputHandler}
         />
         <br />
-        <label htmlFor="password">Enter your password</label>
+        <label htmlFor="password">Password</label>
         <br />
         <input
           name="password"
           type="text"
-          placeholder="**********"
+          placeholder="password"
           onChange={inputHandler}
         />
         {/* <br />
@@ -113,9 +116,9 @@ const SignUp = () => {
         <p>
           Already signed up,<Link to={"/logIn"}>LogIn</Link>
         </p>
-        <button type="submit">Register</button>
+        <button className={styles.btnSubmit}type="submit">Register</button>
       </form>
-    </>
+    </div>
   );
 };
 

@@ -6,12 +6,13 @@ import About from "./pages/About";
 import Help from "./pages/Help";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
-import { LogOut } from "./pages/LogOut.jsx";
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { LogOut } from "./pages/LogOut";
+import CreateTest from "./pages/TestPage"
+import Dashboard from "./pages/Dashboard";
+import GeneratedForm from "./pages/GeneratedForm";
 
 function App() {
+
   return (
     <BrowserRouter>
       <Navbar />
@@ -22,6 +23,8 @@ function App() {
         <Route path="/LogIn" element={<Login />}></Route>
         <Route path="/SignUp" element={<SignUp />}></Route>
         <Route path="/logOut" element={<LogOut />}></Route>
+        <Route path="/createtest" element={<CreateTest />} />
+        <Route path="/your_quiz" element={<GeneratedForm />} />
       </Routes>
     </BrowserRouter>
   );

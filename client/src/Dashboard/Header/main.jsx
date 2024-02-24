@@ -17,6 +17,8 @@ function Header({OpenSidebar}){
                 <BsFillBellFill className="icon"/>
                 <BsFillEnvelopeFill className="icon"/>
                 <BsPersonCircle className="icon"/>
+                <button className="create-test-button">Create Test</button>
+                <button className="take-test-button">Take Test</button>
             </div>
         </header>
     );

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
-
+import styles from '../styles/signup.module.css';
 const Login = () => {
   const navigate = useNavigate();
   const { storeTokenInLS } = useAuth();
@@ -42,8 +42,9 @@ const Login = () => {
     }
   };
   return (
-    <>
-      <form onSubmit={(event) => handleSubmit(event)}>
+    <div className={styles.container}>
+      <form id={styles.form}onSubmit={(event) => handleSubmit(event)}>
+        <h1>Login</h1>
         <label htmlFor="email">Enter your email address</label>
         <br />
         <input
@@ -58,14 +59,14 @@ const Login = () => {
         <input
           name="password"
           type="text"
-          placeholder="**********"
+          placeholder="password"
           onChange={inputHandler}
         />
         <br />
 
-        <button type="submit">Register</button>
+        <button className={styles.btnSubmit} type="submit">Login</button>
       </form>
-    </>
+    </div>
   );
 };
 

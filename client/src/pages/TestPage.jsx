@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React , {useState, useContext} from "react";
 import { useNavigate } from "react-router-dom";
 import '../styles/forms.css';
+
 const Test = () => {
+  
+ 
   let dataset = {
     id: 0,
     title: "",
@@ -23,7 +26,9 @@ const Test = () => {
     option3: ""
   })
   const navigateTo = useNavigate();
-
+  const generateButton = function () {
+    
+  }
   const onSubmissionHandler = function (event) {
     event.preventDefault();
     setDataset((prev) => {
@@ -152,7 +157,7 @@ const Test = () => {
         <button type="submit" onSubmit={onSubmissionHandler}>Add</button>
       </form>
       <h1>Preview Form</h1>
-      {formdata.slice(1)
+      {formdata.slice(0)
       .sort((a, b) => a.id - b.id)
       .map((data) => {
         return (
@@ -186,7 +191,7 @@ const Test = () => {
         </ul>
         )
       })}
-    <button>Generate Form</button>
+    <button type="button" onClick={generateButton}>Generate</button>
     </div>
   );
 };
