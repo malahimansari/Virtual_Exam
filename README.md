@@ -1,4 +1,4 @@
-#Quizlify - Virtual Exam System Application
+# Quizlify - Virtual Exam System Application
 Quizlify is a web application designed to provide virtual exams or online assessments for students, teachers, or both. Quizlify aims to simplify the exam process and provide users with a great experience with its easy-to-understand and powerful features.
 
 ##Key Features:
