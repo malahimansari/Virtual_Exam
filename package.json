@@ -5,6 +5,7 @@
   "main": "config.js",
   "type": "module",
   "scripts": {
+
     "start": "node server.js",
     "client": "npm run dev --prefix client",
     "dev": " concurrently \"nodemon server.js\" \"npm run client\""

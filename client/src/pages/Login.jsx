@@ -1,33 +1,72 @@
-import React from 'react'
-import styles from '../styles/signup.module.css'
-import { useNavigate } from 'react-router-dom'
-import Navbar from '../components/common/Navbar/main';
-const Login = () => {
-  const navigateTo = useNavigate();
-  const signuppageNavigator = () => {
-    navigateTo('/signup');
-  }
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../store/auth";
 
+const Login = () => {
+  const navigate = useNavigate();
+  const { storeTokenInLS } = useAuth();
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+
+  const inputHandler = (e) => {
+    setUser((prevUser) => ({ ...user, [e.target.name]: e.target.value }));
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:8080/api/v1/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
+      // console.log(response);
+
+      if (response.ok) {
+        setUser({
+          email: "",
+          password: "",
+        });
+        navigate("/");
+        const data = await response.json();
+        storeTokenInLS(data.token);
+      } else {
+        const data = await response.json();
+        console.log(data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
-    <Navbar />
-    <div className={styles.container}>
-    <form id={styles.form} onSubmit={(event) => event.preventDefault()}>
-      <button type='button' className={styles.btnBack} onClick={signuppageNavigator}>Back <i className="bi bi-arrow-left-circle"></i></button>
-      <h1>Login <i className="bi bi-key"></i></h1>
-          <label htmlFor='email'>Email address</label>
-          <br />
-          <input name='email' type='email' placeholder='name@example.com' />
-          <br />
-          <label htmlFor='password'>Password</label>
-          <br />
-          <input name='password' type='text' placeholder='password' />
-          <br />
-          <button className={styles.btnSubmit} type="submit">Login <i className="bi bi-box-arrow-in-right"></i></button>
-    </form>
-    </div>
-    </>
-  )
-}
+      <form onSubmit={(event) => handleSubmit(event)}>
+        <label htmlFor="email">Enter your email address</label>
+        <br />
+        <input
+          name="email"
+          type="email"
+          placeholder="name@example.com"
+          onChange={inputHandler}
+        />
+        <br />
+        <label htmlFor="password">Enter your password</label>
+        <br />
+        <input
+          name="password"
+          type="text"
+          placeholder="**********"
+          onChange={inputHandler}
+        />
+        <br />
 
-export default Login
+        <button type="submit">Register</button>
+      </form>
+    </>
+  );
+};
+
+export default Login;
