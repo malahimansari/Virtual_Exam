@@ -50,6 +50,9 @@ const SignUp = () => {
       console.log(error);
     }
   };
+  const navigator = () => {
+    navigate('/');
+  }
   return (
     <div className={styles.container}>
 
@@ -59,6 +62,7 @@ const SignUp = () => {
           handleSubmit(event);
         }}
       >
+        <button className={styles.btnBack} onClick={navigator}>Back</button>
         <h1>Register </h1>
         <label htmlFor="username">Username</label>
         <br />

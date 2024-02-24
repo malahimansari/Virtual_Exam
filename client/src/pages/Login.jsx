@@ -30,7 +30,7 @@ const Login = () => {
           email: "",
           password: "",
         });
-        navigate("/");
+        navigate("/dashboard");
         const data = await response.json();
         storeTokenInLS(data.token);
       } else {
@@ -41,9 +41,13 @@ const Login = () => {
       console.log(error);
     }
   };
+  const navigator = () => {
+    navigate('/');
+  }
   return (
     <div className={styles.container}>
       <form id={styles.form}onSubmit={(event) => handleSubmit(event)}>
+        <button className={styles.btnBack} onClick={navigator}>Back</button>
         <h1>Login</h1>
         <label htmlFor="email">Enter your email address</label>
         <br />

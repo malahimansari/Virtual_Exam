@@ -1,9 +1,10 @@
 import React , {useState, useContext} from "react";
 import { useNavigate } from "react-router-dom";
 import '../styles/forms.css';
+import GeneratedForm from "./GeneratedForm";
 
 const Test = () => {
-  
+
  
   let dataset = {
     id: 0,
@@ -27,32 +28,29 @@ const Test = () => {
   })
   const navigateTo = useNavigate();
   const generateButton = function () {
-    
+    var exporteddata = [...formdata];
+    console.log(exporteddata);
+    <GeneratedForm exporteddata={exporteddata} />
+    navigateTo('')
   }
   const onSubmissionHandler = function (event) {
     event.preventDefault();
     setDataset((prev) => {
-      return {...prev, id: Math.round(Math.random() * 100)}
+      return {...prev}
     })
     
     const finaldata = {...datasets, ...finalOptions}
     setFormData((prev) => {
       return [...prev, finaldata];
     });
-    setDataset(dataset);
-    setOptions({
-      option1: "",
-      option2: "",
-      option3: ""
-    });
-  
+
     
     
   };
 
   const onChangeHandler = (event) => {
     setDataset((prevState) => {
-      return {...prevState, title : event.target.value,};
+      return {...prevState, title : event.target.value, id: Math.floor(Math.random() * 100)};
     })
   };
 
@@ -119,7 +117,7 @@ const Test = () => {
 
   return (
     <div className="container">
-      <form key={formdata.map((d) => d.id)}onSubmit={onSubmissionHandler}>
+      <form onSubmit={onSubmissionHandler}>
         <label htmlFor="title">Add Question</label>
         
         <input

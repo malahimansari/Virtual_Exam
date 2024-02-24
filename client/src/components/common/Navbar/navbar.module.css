@@ -55,7 +55,10 @@ a:hover {
     .container {
         padding: 5%;
     }
+    
     ul {
-        display: none;
+        display: flex;
+        flex-direction: column;
     }
+
 }
