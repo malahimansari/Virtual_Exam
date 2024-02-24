@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../store/auth";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const { storeTokenInLS } = useAuth();
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -12,25 +16,26 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(
-        "http://localhost:8080/api/v1/users/register_user",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(user),
-        }
-      );
+      const response = await fetch("http://localhost:8080/api/v1/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
+      // console.log(response);
+
       if (response.ok) {
         setUser({
-          name: "",
           email: "",
           password: "",
         });
         navigate("/");
         const data = await response.json();
         storeTokenInLS(data.token);
+      } else {
+        const data = await response.json();
+        console.log(data);
       }
     } catch (error) {
       console.log(error);
@@ -38,7 +43,7 @@ const Login = () => {
   };
   return (
     <>
-      <form onSubmit={(event) => handleSubmit}>
+      <form onSubmit={(event) => handleSubmit(event)}>
         <label htmlFor="email">Enter your email address</label>
         <br />
         <input

@@ -30,6 +30,8 @@ const SignUp = () => {
           body: JSON.stringify(user),
         }
       );
+
+      const data = await response.json();
       if (response.ok) {
         setUser({
           name: "",
@@ -37,8 +39,12 @@ const SignUp = () => {
           password: "",
         });
         navigate("/logIn");
-        const data = await response.json();
+
         storeTokenInLS(data.token);
+      } else if (data.errors) {
+        alert(data.errors[0].msg);
+      } else {
+        alert(data.msg);
       }
     } catch (error) {
       console.log(error);
