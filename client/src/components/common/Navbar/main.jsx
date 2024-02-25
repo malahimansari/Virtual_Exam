@@ -25,9 +25,14 @@ function Navbar() {
                 <Link to="/help">Help</Link>
               </li>
               {isLoggedIN ? (
+                <>
                 <li>
                   <Link to="/logOut">LogOut</Link>
                 </li>
+                <li>
+                    <Link to="/dashboard">Dashboard</Link>
+                </li>
+                </>
               ) : (
                 <>
                   <li>

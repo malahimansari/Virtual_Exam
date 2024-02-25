@@ -12,7 +12,7 @@ const SignUp = () => {
     name: "",
     email: "",
     password: "",
-    // role: "",
+    role: "",
   });
 
   const inputHandler = (e) => {
@@ -39,7 +39,7 @@ const SignUp = () => {
           email: "",
           password: "",
         });
-        navigate("/logIn");
+        navigate("/");
 
         storeTokenInLS(data.token);
       } else if (data.errors) {
