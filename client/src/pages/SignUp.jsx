@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
+import styles from "../styles/signup.module.css";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -51,8 +52,9 @@ const SignUp = () => {
     }
   };
   return (
-    <>
+    <div className={styles.container}>
       <form
+        id={styles.form}
         onSubmit={(event) => {
           handleSubmit(event);
         }}
@@ -115,7 +117,7 @@ const SignUp = () => {
         </p>
         <button type="submit">Register</button>
       </form>
-    </>
+    </div>
   );
 };
 

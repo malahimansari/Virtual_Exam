@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
-import {Link, useNavigate} from 'react-router-dom';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./navbar.module.css";
 import { useAuth } from "../../../store/auth";
 
 function Navbar() {
   const { isLoggedIN } = useAuth();
+  const navigateTo = useAuth();
+  const navigatorHome = () => {
+    navigateTo("/");
+  };
   return (
     <>
       <header>
         <nav>
           <div className={styles.container}>
-            <div className={styles.logo} onClick={navigatorHome} >
+            <div className={styles.logo} onClick={navigatorHome}>
               <i className="bi bi-backpack2-fill"></i> Quizify
             </div>
             <ul>
