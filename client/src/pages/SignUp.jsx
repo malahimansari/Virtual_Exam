@@ -82,7 +82,7 @@ const SignUp = () => {
         <br />
         <input
           name="password"
-          type="text"
+          type="password"
           placeholder="password"
           onChange={inputHandler}
         />
