@@ -9,6 +9,7 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const [wrongPassEntered, setWrongPassEntered] = useState(false);
 
   const inputHandler = (e) => {
     setUser((prevUser) => ({ ...user, [e.target.name]: e.target.value }));
@@ -34,8 +35,7 @@ const Login = () => {
         const data = await response.json();
         storeTokenInLS(data.token);
       } else {
-        const data = await response.json();
-        alert(data.msg);
+        setWrongPassEntered(!wrongPassEntered);
       }
     } catch (error) {
       console.log(error);
@@ -62,6 +62,11 @@ const Login = () => {
         <br />
         <label htmlFor="password">Enter your password</label>
         <br />
+        <p
+          style={{ display: wrongPassEntered ? "block" : "none", color: "red" }}
+        >
+          Wrong Credentials
+        </p>
         <input
           name="password"
           type="password"
