@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
-import styles from '../styles/signup.module.css';
+import styles from "../styles/signup.module.css";
+
 const SignUp = () => {
   const navigate = useNavigate();
   const { storeTokenInLS } = useAuth();
@@ -13,12 +14,19 @@ const SignUp = () => {
     password: "",
     // role: "",
   });
+  const [emailError, setEmailError] = useState("");
 
   const inputHandler = (e) => {
     setUser((prevUser) => ({ ...prevUser, [e.target.name]: e.target.value }));
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validateEmail(user.email)) {
+      setEmailError("Invalid email format");
+      return;
+    }
+
     try {
       const response = await fetch(
         "http://localhost:8080/api/v1/users/register_user",
@@ -37,32 +45,39 @@ const SignUp = () => {
           name: "",
           email: "",
           password: "",
+          role: "",
         });
-        navigate("/logIn");
-
+        navigate("/");
         storeTokenInLS(data.token);
-      } else if (data.errors) {
-        alert(data.errors[0].msg);
       } else {
-        alert(data.msg);
+        console.log(data);
       }
     } catch (error) {
       console.log(error);
     }
   };
+
   const navigator = () => {
-    navigate('/');
-  }
+    navigate("/");
+  };
+
+  const validateEmail = (email) => {
+    // Regular expression for email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+  };
+
   return (
     <div className={styles.container}>
-
-      
-      <form id={styles.form}
+      <form
+        id={styles.form}
         onSubmit={(event) => {
           handleSubmit(event);
         }}
       >
-        <button className={styles.btnBack} onClick={navigator}>Back</button>
+        <button className={styles.btnBack} onClick={navigator}>
+          Back
+        </button>
         <h1>Register </h1>
         <label htmlFor="username">Username</label>
         <br />
@@ -81,16 +96,17 @@ const SignUp = () => {
           placeholder="name@example.com"
           onChange={inputHandler}
         />
+        {emailError && <span style={{ color: "red" }}>{emailError}</span>}
         <br />
         <label htmlFor="password">Password</label>
         <br />
         <input
           name="password"
-          type="text"
+          type="password"
           placeholder="password"
           onChange={inputHandler}
         />
-        {/* <br />
+        <br />
         <label htmlFor="role">Your Role</label>
         <br />
         <input
@@ -116,11 +132,13 @@ const SignUp = () => {
           onChange={inputHandler}
         />{" "}
         Both of them
-        <br /> */}
+        <br />
         <p>
           Already signed up,<Link to={"/logIn"}>LogIn</Link>
         </p>
-        <button className={styles.btnSubmit}type="submit">Register</button>
+        <button className={styles.btnSubmit} type="submit">
+          Register
+        </button>
       </form>
     </div>
   );

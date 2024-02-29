@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import {Link, useNavigate} from 'react-router-dom';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./navbar.module.css";
 import { useAuth } from "../../../store/auth";
 
@@ -8,14 +8,17 @@ function Navbar() {
   const navigateTo = useNavigate();
 
   const navigatorHome = function () {
-    navigateTo('/');
-  }
+    navigateTo("/");
+  };
   return (
     <>
       <header>
         <nav>
           <div className={styles.container}>
-            <div className={`${styles.logo} ${styles.toggle}`} onClick={navigatorHome} >
+            <div
+              className={`${styles.logo} ${styles.toggle}`}
+              onClick={navigatorHome}
+            >
               <i className="bi bi-backpack2-fill"></i> Quizify
             </div>
             <ul>
@@ -24,13 +27,13 @@ function Navbar() {
               </li>
               {isLoggedIN ? (
                 <>
-                <li>
-                  <Link to="/logOut">LogOut</Link>
-                </li>
-                <li>
-                <Link to="/dashboard"></Link>
-              </li>
-              </>
+                  <li>
+                    <Link to="/logOut">LogOut</Link>
+                  </li>
+                  <li>
+                    <Link to="/dashboard">Dashboard</Link>
+                  </li>
+                </>
               ) : (
                 <>
                   <li>
