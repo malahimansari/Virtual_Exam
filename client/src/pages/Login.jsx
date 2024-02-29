@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
-import styles from '../styles/signup.module.css';
+import styles from "../styles/signup.module.css";
 const Login = () => {
   const navigate = useNavigate();
   const { storeTokenInLS } = useAuth();
@@ -35,19 +35,21 @@ const Login = () => {
         storeTokenInLS(data.token);
       } else {
         const data = await response.json();
-        console.log(data);
+        alert(data.msg);
       }
     } catch (error) {
       console.log(error);
     }
   };
   const navigator = () => {
-    navigate('/');
-  }
+    navigate("/");
+  };
   return (
     <div className={styles.container}>
-      <form id={styles.form}onSubmit={(event) => handleSubmit(event)}>
-        <button className={styles.btnBack} onClick={navigator}>Back</button>
+      <form id={styles.form} onSubmit={(event) => handleSubmit(event)}>
+        <button className={styles.btnBack} onClick={navigator}>
+          Back
+        </button>
         <h1>Login</h1>
         <label htmlFor="email">Enter your email address</label>
         <br />
@@ -62,13 +64,15 @@ const Login = () => {
         <br />
         <input
           name="password"
-          type="text"
+          type="password"
           placeholder="password"
           onChange={inputHandler}
         />
         <br />
 
-        <button className={styles.btnSubmit} type="submit">Login</button>
+        <button className={styles.btnSubmit} type="submit">
+          Login
+        </button>
       </form>
     </div>
   );
