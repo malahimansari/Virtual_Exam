@@ -14,14 +14,8 @@ let corsOptions = {
   methods: "GET,POST,PUT,DELETE,",
   credentials: true,
 };
-app.use(cors(corsOptions));
 
 app.use(express.json({ extended: false }));
-let corsOptions = {
-  origin: "http://localhost:5173",
-  methods: "GET, POST, PUT, DELETE",
-  credentials: true,
-};
 
 app.use(cors(corsOptions));
 app.use("/api/v1/users", userRoutes);
