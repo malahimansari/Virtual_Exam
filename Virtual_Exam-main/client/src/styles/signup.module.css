@@ -1,0 +1,70 @@
+.container {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    padding: 5% 5%;
+    background-color: #0000;
+}
+#form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 30%;
+    padding: 10% 5%;
+    border-radius: 50px;
+    border: 1px solid darkcyan;
+    box-shadow: darkcyan 0px 3px 10px;
+}
+#form label {
+    font-size: 20px;
+}
+#form input {
+    border: 2px solid darkcyan;
+    height: 25px;
+    padding: 2%;
+    font-family: 'Poppins';
+    border-radius: 10px;
+}
+#form input::focus, #form input::focus-visible {
+    outline: 2px solid darkcyan;
+}
+#form input::placeholder {
+    color: black;
+    opacity: calc(0.8);
+    font-size: 15px;
+}
+
+#form .btnSubmit {
+    height: 40px;
+    background-color: darkcyan;
+    border: none;
+    color: #ffff;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: 0.4s ease-in-out;
+}
+#form .btnSubmit:hover {
+    background-color: #fff;
+    color: darkcyan;
+    border: 2px solid darkcyan;
+}
+#form .btnBack {
+    width: 90px;
+    height: 50px;
+    font-size: 22px;
+    color: darkcyan;
+    border: none;
+    border-radius: 30px;
+    background: transparent;
+    justify-content: center;
+    transition: 0.3s ease-in-out;
+}
+#form .btnBack:hover {
+    background-color: rgb(197, 194, 194);
+}
+
+@media (max-width: 1000px) {
+    #form {
+        width: 100%;
+    }
+}
