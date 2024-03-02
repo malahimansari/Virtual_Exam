@@ -20,24 +20,24 @@ function Navbar() {
             </div>
             <ul>
               <li>
-                <Link to="/about">About</Link>
+                <Link to="/about" className={styles.link}>Docs <i className="bi bi-journal-text"></i> </Link>
               </li>
               {isLoggedIN ? (
                 <>
                 <li>
-                  <Link to="/logOut">LogOut</Link>
+                  <Link to="/logOut" className={styles.link}>Logout <i className="bi bi-box-arrow-in-left"></i></Link>
                 </li>
                 <li>
-                <Link to="/dashboard"></Link>
+                <Link to="/dashboard" className={styles.link}>Dashboard <i className="bi bi-graph-up-arrow"></i></Link>
               </li>
               </>
               ) : (
                 <>
                   <li>
-                    <Link to="/signup">SignUp</Link>
+                    <Link to="/signup" className={styles.link}>SignUp</Link>
                   </li>
                   <li>
-                    <Link to="/login">LogIn</Link>
+                    <Link to="/login" className={styles.link}>Login <i className="bi bi-box-arrow-in-right"></i></Link>
                   </li>
                 </>
               )}

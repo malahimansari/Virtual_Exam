@@ -11,9 +11,9 @@ const SignUp = () => {
     name: "",
     email: "",
     password: "",
-    // role: "",
+    role: 2
   });
-
+ 
   const inputHandler = (e) => {
     setUser((prevUser) => ({ ...prevUser, [e.target.name]: e.target.value }));
   };
@@ -43,6 +43,7 @@ const SignUp = () => {
         storeTokenInLS(data.token);
       } else if (data.errors) {
         alert(data.errors[0].msg);
+     
       } else {
         alert(data.msg);
       }
@@ -86,41 +87,17 @@ const SignUp = () => {
         <br />
         <input
           name="password"
-          type="text"
+          type="password"
           placeholder="password"
           onChange={inputHandler}
         />
-        {/* <br />
-        <label htmlFor="role">Your Role</label>
-        <br />
-        <input
-          type="radio"
-          name="role"
-          value="Student"
-          onChange={inputHandler}
-        />{" "}
-        Student
-        <br />
-        <input
-          type="radio"
-          name="role"
-          value="Teacher"
-          onChange={inputHandler}
-        />{" "}
-        Teacher
-        <br />
-        <input
-          type="radio"
-          name="role"
-          value="Both"
-          onChange={inputHandler}
-        />{" "}
-        Both of them
-        <br /> */}
         <p>
-          Already signed up,<Link to={"/logIn"}>LogIn</Link>
+          Already signed up,<Link style={{
+            color: "darkcyan"
+          }} to={"/logIn"}>LogIn</Link>
         </p>
         <button className={styles.btnSubmit}type="submit">Register</button>
+      
       </form>
     </div>
   );

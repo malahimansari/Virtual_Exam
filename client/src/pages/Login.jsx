@@ -42,7 +42,7 @@ const Login = () => {
     }
   };
   const navigator = () => {
-    navigate('/');
+    navigate('/signup');
   }
   return (
     <div className={styles.container}>
@@ -62,7 +62,7 @@ const Login = () => {
         <br />
         <input
           name="password"
-          type="text"
+          type="password"
           placeholder="password"
           onChange={inputHandler}
         />

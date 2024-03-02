@@ -88,7 +88,7 @@ function Home() {
                     {/* Add Incomplete icon here */}
                     <MdIncompleteCircle className='card_icon'/>
                 </div>
-                <h1>42</h1>
+                <h1>In Future Feature</h1>
             </div>
         </div>
 

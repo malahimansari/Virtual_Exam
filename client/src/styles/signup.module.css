@@ -2,14 +2,16 @@
     display: flex;
     align-self: center;
     justify-content: center;
-    padding: 10%;
+    padding: 5% 5%;
+    background-color: #0000;
 }
 #form {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    width: 30%;
     padding: 10% 5%;
-    border-radius: 5%;
+    border-radius: 50px;
     border: 1px solid darkcyan;
     box-shadow: darkcyan 0px 3px 10px;
 }
@@ -20,7 +22,11 @@
     border: 2px solid darkcyan;
     height: 25px;
     padding: 2%;
+    font-family: 'Poppins';
     border-radius: 10px;
+}
+#form input::focus, #form input::focus-visible {
+    outline: 2px solid darkcyan;
 }
 #form input::placeholder {
     color: black;
@@ -55,4 +61,10 @@
 }
 #form .btnBack:hover {
     background-color: rgb(197, 194, 194);
+}
+
+@media (max-width: 1000px) {
+    #form {
+        width: 100%;
+    }
 }

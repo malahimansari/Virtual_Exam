@@ -1,5 +1,5 @@
 import "./App.css";
-import Navbar from "./components/common/Navbar/main";
+
 import Main from "./components/features/Main/main";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import About from "./pages/About";
@@ -8,11 +8,13 @@ import SignUp from "./pages/SignUp";
 import { LogOut } from "./pages/LogOut";
 import CreateTest from "./pages/TestPage"
 import Dashboard from "./pages/Dashboard";
-import GeneratedForm from "./pages/GeneratedForm";
+import { FormProvider } from "./context/FormProvider";
+import Quiz from "./pages/Quiz";
 
 function App() {
 
   return (
+    <FormProvider>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Main />}></Route>
@@ -21,10 +23,11 @@ function App() {
         <Route path="/SignUp" element={<SignUp />}></Route>
         <Route path="/logOut" element={<LogOut />}></Route>
         <Route path="/createtest" element={<CreateTest />} />
-        <Route path="/your_quiz" element={<GeneratedForm />} />
         <Route path='/dashboard' element={<Dashboard />}></Route>
+        <Route path='/quiz' element={<Quiz />}></Route>
       </Routes>
     </BrowserRouter>
+    </FormProvider>
   );
 }
 

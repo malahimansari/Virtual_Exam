@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&display=swap');
-header {
-    background-color: rgb(26, 26, 26);
-    color: white;
-}
+
 .container {
     padding: 2%;
     display: flex;
@@ -23,13 +20,16 @@ ul {
 li {
     display: inline;
 }
-a {
+.link {
+    padding: 4px 10px;
     text-decoration: none;
-    color: #fff;
+    color: #000000;
     transition: 0.5s ease-in-out;
 }
-a:hover {
-    color: rgb(0, 125, 125);
+.link:hover {
+    
+    background-color: rgb(169, 169, 169);
+    border-radius: 10px;
 }
 
 #btn {
