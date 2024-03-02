@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React , {useState, useContext} from "react";
 import { useNavigate } from "react-router-dom";
 import '../styles/forms.css';
+import GeneratedForm from "./GeneratedForm";
+
 const Test = () => {
+
+ 
   let dataset = {
     id: 0,
     title: "",
@@ -23,31 +27,30 @@ const Test = () => {
     option3: ""
   })
   const navigateTo = useNavigate();
-
+  const generateButton = function () {
+    var exporteddata = [...formdata];
+    console.log(exporteddata);
+    <GeneratedForm exporteddata={exporteddata} />
+    navigateTo('')
+  }
   const onSubmissionHandler = function (event) {
     event.preventDefault();
     setDataset((prev) => {
-      return {...prev, id: Math.round(Math.random() * 100)}
+      return {...prev}
     })
     
     const finaldata = {...datasets, ...finalOptions}
     setFormData((prev) => {
       return [...prev, finaldata];
     });
-    setDataset(dataset);
-    setOptions({
-      option1: "",
-      option2: "",
-      option3: ""
-    });
-  
+
     
     
   };
 
   const onChangeHandler = (event) => {
     setDataset((prevState) => {
-      return {...prevState, title : event.target.value,};
+      return {...prevState, title : event.target.value, id: Math.floor(Math.random() * 100)};
     })
   };
 
@@ -114,7 +117,7 @@ const Test = () => {
 
   return (
     <div className="container">
-      <form key={formdata.map((d) => d.id)}onSubmit={onSubmissionHandler}>
+      <form onSubmit={onSubmissionHandler}>
         <label htmlFor="title">Add Question</label>
         
         <input
@@ -152,7 +155,7 @@ const Test = () => {
         <button type="submit" onSubmit={onSubmissionHandler}>Add</button>
       </form>
       <h1>Preview Form</h1>
-      {formdata.slice(1)
+      {formdata.slice(0)
       .sort((a, b) => a.id - b.id)
       .map((data) => {
         return (
@@ -186,7 +189,7 @@ const Test = () => {
         </ul>
         )
       })}
-    <button>Generate Form</button>
+    <button type="button" onClick={generateButton}>Generate</button>
     </div>
   );
 };

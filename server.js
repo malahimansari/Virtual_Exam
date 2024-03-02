@@ -5,7 +5,6 @@ import authRoutes from "./routes/authRoutes.js";
 import instituteRoutes from "./routes/instituteRoutes.js";
 import connectDB from "./db/config.js";
 import cors from "cors";
-
 connectDB();
 dotenv.config();
 const app = express();
@@ -18,7 +17,13 @@ let corsOptions = {
 app.use(cors(corsOptions));
 
 app.use(express.json({ extended: false }));
+let corsOptions = {
+  origin: "http://localhost:5173",
+  methods: "GET, POST, PUT, DELETE",
+  credentials: true,
+};
 
+app.use(cors(corsOptions));
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/institute", instituteRoutes);

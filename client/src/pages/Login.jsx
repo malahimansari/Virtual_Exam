@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
-
+import styles from "../styles/signup.module.css";
 const Login = () => {
   const navigate = useNavigate();
   const { storeTokenInLS } = useAuth();
@@ -9,6 +9,7 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const [wrongPassEntered, setWrongPassEntered] = useState(false);
 
   const inputHandler = (e) => {
     setUser((prevUser) => ({ ...user, [e.target.name]: e.target.value }));
@@ -30,20 +31,26 @@ const Login = () => {
           email: "",
           password: "",
         });
-        navigate("/");
+        navigate("/dashboard");
         const data = await response.json();
         storeTokenInLS(data.token);
       } else {
-        const data = await response.json();
-        console.log(data);
+        setWrongPassEntered(!wrongPassEntered);
       }
     } catch (error) {
       console.log(error);
     }
   };
+  const navigator = () => {
+    navigate("/");
+  };
   return (
-    <>
-      <form onSubmit={(event) => handleSubmit(event)}>
+    <div className={styles.container}>
+      <form id={styles.form} onSubmit={(event) => handleSubmit(event)}>
+        <button className={styles.btnBack} onClick={navigator}>
+          Back
+        </button>
+        <h1>Login</h1>
         <label htmlFor="email">Enter your email address</label>
         <br />
         <input
@@ -55,17 +62,24 @@ const Login = () => {
         <br />
         <label htmlFor="password">Enter your password</label>
         <br />
+        <p
+          style={{ display: wrongPassEntered ? "block" : "none", color: "red" }}
+        >
+          Wrong Credentials
+        </p>
         <input
           name="password"
-          type="text"
-          placeholder="**********"
+          type="password"
+          placeholder="password"
           onChange={inputHandler}
         />
         <br />
 
-        <button type="submit">Register</button>
+        <button className={styles.btnSubmit} type="submit">
+          Login
+        </button>
       </form>
-    </>
+    </div>
   );
 };
 

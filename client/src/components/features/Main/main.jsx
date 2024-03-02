@@ -1,7 +1,10 @@
 import React from 'react';
 import styles from './secone.module.css';
+import Navbar from '../../common/Navbar/main';
 function Main() {
   return (
+    <>
+    <Navbar />
     <main>
         <div className={styles.container}>
           <section>
@@ -33,6 +36,7 @@ function Main() {
           </section>
         </div>
     </main>
+    </>
   )
 }
 
