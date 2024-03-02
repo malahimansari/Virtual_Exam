@@ -1,7 +1,6 @@
-
 main {
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
-    font-weight: 600;
+    font-weight: 800;
 }
 .container {
     padding: 5% 2%;
@@ -11,11 +10,17 @@ main {
 .containersm {
     padding: 5% 2%;
     display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center; /*This code workes.*/
 }
 .containersecond {
     padding: 5% 2%;
-    
+    margin: 5% 0%;
     display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center; /*This code workes.*/
 }
 .containerlast {
     padding: 5% 2%;
@@ -24,11 +29,11 @@ main {
     align-items: center;
     justify-content: center;
 }
-section {
+/* section {
     height: 55vh;
-}
+} */
 .sectiontitle {
-    padding: 2% 0;
+    padding: 2%;
     font-size: 5vh;
     width: 50%;
     
@@ -48,26 +53,70 @@ section {
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 30px;
-    height: 30vh;
+    height: 57vh;   /*I changed the height from 30vh to 50vh.*/
 }
 .picture3{
     margin-left: 50px;
-    width: 50%;
+    width: 28%;
     background-image: url('../../../assets/image1.avif');
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 30px;
-    height: 30vh;
+    height: 50vh;   /*I changed the height from 30vh to 50vh.*/
 }
 .picture2{
     margin-right: 50px;
-    width: 50%;
+    width: 37%;
     background-image: url('../../../assets/image2.avif');
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 30px;
-    height: 30vh;
+    height: 50vh;   /*I changed the height from 30vh to 50vh.*/
 }
+
+/* Common styles for both sections */
+.sectiontitle {
+    padding: 20px; /* Adjust padding as needed */
+    /* font-size: 16px;  */
+    text-align: center;
+}
+
+/* Common styles for both sections */
+.sectiontitle {
+    padding: 20px; /* Adjust padding as needed */
+    text-align: center;
+}
+
+/* Styles for the first section */
+.Pop-up-Sticky-note-Logo {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Add margin to create space between sections */
+}
+
+.Pop-up-Sticky-note-Logo img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 30px;
+}
+
+/* Styles for the second section */
+.ETextSummarization {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Add margin to create space between sections */
+}
+
+.ETextSummarization img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 30px;
+}
+
 .sectionlasttitle {
     padding: 2% 0;
     margin-left: 15px;
@@ -98,36 +147,47 @@ section {
 @media (max-width: 1000px) {
     .containersm {
         padding: 1% 1%;
+        margin: 5% 0%;
         display: flex;
         flex-direction: column;
-        margin-left: 15px;
-        align-items: flex-start;
+        /* margin-left: 15px;  -- This works.*/
+        /* align-items: flex-start; */
+        align-items: center; /*This code works*/
         text-align: center;
         justify-content: center;
-        height: 50vh;
-        /* border: 2px solid #000; */
+        /* height: 100%; */
+        
     }
     .sectiontitle {
-        font-size: 2.9vh;
-        margin: 2% 2%;
+        font-size: 3.3vh;
+        padding: 1%;
+        margin: 1% 1%;
     }
-    .picture, .picture2, .picture3 {
-        width: 70vw;
-        height: 30vh;
-        margin: 15px 10px;
+    .picture{
+        width: 100vw;
+        height: 45vh;
+        /* margin: 15px 10px; */
     }
+
     .picture2 {
         margin: 5%;
-        width: 70vw;
-        height: 25vh;
+        width: 50vw;
+        height: 30vh;
         margin-bottom: 5%;
     }
+
+    .picture3 {
+        width: 46vw;
+        height: 40vh;
+    }
+
     .sectionlasttitle {
         font-size: 3.3vh;
         text-align: left;
     }
     .containerlast {
-        align-items: flex-start;
+        /* align-items: flex-start; */
+        align-items: center;
     }
     #btn {
         width: 30vw;
@@ -135,5 +195,20 @@ section {
     }
     .containersecond {
         flex-direction: column-reverse;
+        /* height: 100%; */
+    }
+
+    /* Ensure both sections stack properly */
+    .Pop-up-Sticky-note-Logo,
+    .ETextSummarization {
+        margin: 20px 0; /* Add margin to create space between sections */
+        display: flex;
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center horizontally */
+    }
+
+    /* Ensure "ETextSummarization" image is displayed above the text */
+    .ETextSummarization img {
+        order: -1; /* Display image above text */
     }
 }

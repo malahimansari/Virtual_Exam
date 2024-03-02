@@ -12,7 +12,8 @@ const SignUp = () => {
     name: "",
     email: "",
     password: "",
-    role: "",
+
+    role: 2
   });
   const [emailError, setEmailError] = useState("");
 

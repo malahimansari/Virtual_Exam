@@ -24,7 +24,7 @@ function Navbar() {
             </div>
             <ul>
               <li>
-                <Link to="/about">About</Link>
+                <Link to="/about" className={styles.link}>Docs <i className="bi bi-journal-text"></i> </Link>
               </li>
               {isLoggedIN ? (
                 <>
@@ -38,10 +38,10 @@ function Navbar() {
               ) : (
                 <>
                   <li>
-                    <Link to="/signup">SignUp</Link>
+                    <Link to="/signup" className={styles.link}>SignUp</Link>
                   </li>
                   <li>
-                    <Link to="/login">LogIn</Link>
+                    <Link to="/login" className={styles.link}>Login <i className="bi bi-box-arrow-in-right"></i></Link>
                   </li>
                 </>
               )}

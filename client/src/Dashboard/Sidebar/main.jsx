@@ -36,26 +36,15 @@ function Sidebar({openSidebarToggle, OpenSidebar}){
                     </a>
                 </li>
 
+           
                 <li className="sidebar-list-item">
                     {/* <Link></Link> You can use Link autodown */}
                     <a href="">
-                        <MdDoneOutline className="icon"/>Courses completed
+                        <GoChecklist className="icon"/>Your Tests
                     </a>
                 </li>
 
-                <li className="sidebar-list-item">
-                    {/* <Link></Link> You can use Link autodown */}
-                    <a href="">
-                        <GoChecklist className="icon"/>Test & practices taken
-                    </a>
-                </li>
-
-                <li className="sidebar-list-item">
-                    {/* <Link></Link> You can use Link autodown */}
-                    <a href="">
-                        <MdIncompleteCircle className="icon"/>Courses left
-                    </a>
-                </li>
+               
 
                 <li className="sidebar-list-item">
                     {/* <Link></Link> You can use Link autodown */}
