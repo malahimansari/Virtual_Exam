@@ -1,3 +1,4 @@
+
 import express from 'express';
 import dotenv from 'dotenv';
 import userRoutes from './routes/userRoutes.js';
@@ -9,13 +10,16 @@ import cors from "cors";
 connectDB();
 dotenv.config();
 const app = express();
+
 app.use(express.json({ extended: false }));
 
 let corsOptions = {
-    origin: "http://localhost:5173",
-    methods: "GET, POST, PUT, DELETE",
-    credentials: true
+  origin: "http://localhost:5173",
+  methods: "GET,POST,PUT,DELETE,",
+  credentials: true,
 };
+
+app.use(express.json({ extended: false }));
 
 app.use(cors(corsOptions));
 app.use("/api/v1/users", userRoutes);
@@ -29,4 +33,4 @@ app.post("/api/v1/questions", async (req, res) => {
 })
 const PORT = process.env.PORT || 8080;
 
-app.listen(PORT, () => console.log('Server is Running on', PORT));
+app.listen(PORT, () => console.log("Server is Running on", PORT));

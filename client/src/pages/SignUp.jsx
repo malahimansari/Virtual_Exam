@@ -12,6 +12,7 @@ const SignUp = () => {
     name: "",
     email: "",
     password: "",
+
     role: 2
   });
   const [emailError, setEmailError] = useState("");
@@ -48,6 +49,7 @@ const SignUp = () => {
           role: "",
         });
         navigate("/");
+
         storeTokenInLS(data.token);
       } else {
         console.log(data);
@@ -70,6 +72,7 @@ const SignUp = () => {
   return (
     <div className={styles.container}>
       <form
+        id={styles.form}
         id={styles.form}
         onSubmit={(event) => {
           handleSubmit(event);
