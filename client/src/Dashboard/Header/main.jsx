@@ -17,9 +17,7 @@ function Header({ OpenSidebar }) {
     }
   };
   const navigateToCreateRoom = () => {
-    if (user && isLoggedIN) {
-      nav("/createroom");
-    }
+    nav("/createroom");
   };
   const backbutton = () => {
     nav("/");

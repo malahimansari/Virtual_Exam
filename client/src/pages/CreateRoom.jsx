@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "./CreateRoom.module.css";
 
 export const CreateRoom = () => {
   const [formData, setFormData] = useState({
@@ -52,8 +53,8 @@ export const CreateRoom = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <form onSubmit={handleSubmit} className={styles.form}>
+      <div className={styles.formGroup}>
         <label htmlFor="name">Name:</label>
         <input
           type="text"
@@ -64,7 +65,7 @@ export const CreateRoom = () => {
           required
         />
       </div>
-      <div>
+      <div className={styles.formGroup}>
         <label htmlFor="code">Code:</label>
         <input
           type="text"
@@ -75,7 +76,7 @@ export const CreateRoom = () => {
           required
         />
       </div>
-      <div>
+      <div className={styles.formGroup}>
         <label htmlFor="capacity">Capacity:</label>
         <input
           type="number"
@@ -86,7 +87,7 @@ export const CreateRoom = () => {
           required
         />
       </div>
-      <div>
+      <div className={styles.formGroup}>
         <label htmlFor="isAvailable">Is Available:</label>
         <select
           id="isAvailable"
@@ -100,7 +101,7 @@ export const CreateRoom = () => {
         </select>
       </div>
       {/* Input for teachers array */}
-      <div>
+      <div className={styles.formGroup}>
         <label htmlFor="teachers">Teachers:</label>
         <input
           type="text"
@@ -111,7 +112,7 @@ export const CreateRoom = () => {
         />
       </div>
       {/* Input for students array */}
-      <div>
+      <div className={styles.formGroup}>
         <label htmlFor="students">Students:</label>
         <input
           type="text"
@@ -122,7 +123,7 @@ export const CreateRoom = () => {
         />
       </div>
       {/* Input for scheduledExams array */}
-      <div>
+      <div className={styles.formGroup}>
         <label htmlFor="scheduledExams">Scheduled Exams:</label>
         <input
           type="text"
@@ -132,7 +133,9 @@ export const CreateRoom = () => {
           onChange={handleChange}
         />
       </div>
-      <button type="submit">Submit</button>
+      <button type="submit" className={styles.submitButton}>
+        Submit
+      </button>
     </form>
   );
 };
