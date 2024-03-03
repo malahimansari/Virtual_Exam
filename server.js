@@ -25,7 +25,7 @@ app.get("/api/v1/questions", async (req, res) => {
     await questionController.getAllQuestions(req, res);
 })
 app.post("/api/v1/questions", async (req, res) => {
-    await questionController.createQuestion(req, res);
+    await questionController.createQuestion(req, res);s
 })
 const PORT = process.env.PORT || 8080;
 
