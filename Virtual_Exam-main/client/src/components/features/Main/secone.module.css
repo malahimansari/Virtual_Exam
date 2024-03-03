@@ -76,19 +76,6 @@ main {
     height: 50vh;   /*I changed the height from 30vh to 50vh.*/
 }
 
-/* Common styles for both sections */
-.sectiontitle {
-    padding: 20px; /* Adjust padding as needed */
-    /* font-size: 16px;  */
-    text-align: center;
-}
-
-/* Common styles for both sections */
-.sectiontitle {
-    padding: 20px; /* Adjust padding as needed */
-    text-align: center;
-}
-
 .sectionlasttitle {
     padding: 2% 0;
     margin-left: 15px;
