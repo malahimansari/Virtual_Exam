@@ -5,11 +5,12 @@ import { useAuth } from "../../../store/auth";
 
 function Navbar() {
   const { isLoggedIN } = useAuth();
-  const navigateTo = useNavigate();
+  const navigateTo = useAuth();
 
-  const navigatorHome = function () {
+  const navigatorHome = () => {
     navigateTo("/");
   };
+
   return (
     <>
       <header>

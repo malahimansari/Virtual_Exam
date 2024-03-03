@@ -6,13 +6,12 @@ import About from "./pages/About";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import { LogOut } from "./pages/LogOut";
-import CreateTest from "./pages/TestPage"
+import CreateTest from "./pages/TestPage";
 import Dashboard from "./pages/Dashboard";
 import { FormProvider } from "./context/FormProvider";
 import Quiz from "./pages/Quiz";
 
 function App() {
-
   return (
     <FormProvider>
     <BrowserRouter>
@@ -23,6 +22,7 @@ function App() {
         <Route path="/SignUp" element={<SignUp />}></Route>
         <Route path="/logOut" element={<LogOut />}></Route>
         <Route path="/createtest" element={<CreateTest />} />
+
         <Route path='/dashboard' element={<Dashboard />}></Route>
         <Route path='/quiz' element={<Quiz />}></Route>
       </Routes>
