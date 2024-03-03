@@ -45,32 +45,6 @@ const Quiz = () => {
     });
   };
 
-  const submitHandler = async () => {
-answers.map()
-    try {
-      const response = await fetch(
-        `${VITE_API_URL}/api/v1/questions/`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: ,
-        }
-      );
-
-      const data = await response.json();
-      if (response.ok) {
-        
-
-      } else {
-        alert(data.msg);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return (
     <div className={styles.container}>
       <div className={styles.card}>
