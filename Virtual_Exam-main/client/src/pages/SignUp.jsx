@@ -73,7 +73,7 @@ const SignUp = () => {
     <div className={styles.container}>
       <form
         id={styles.form}
-        id={styles.form}
+        // id={styles.form}
         onSubmit={(event) => {
           handleSubmit(event);
         }}

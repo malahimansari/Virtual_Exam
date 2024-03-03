@@ -1,13 +1,11 @@
 import React from 'react';
 import styles from './secone.module.css';
-import PopUpStickyNoteLogo from '../../../assets/Pop-up-Sticky-note-Logo-313.jpg'
-import ETextSummarization from '../../../assets/extractive-text-summarization.jpg'
 
 import Navbar from '../../common/Navbar/main';
 function Main() {
   return (
     <>
-    {/* <Navbar /> */}
+    <Navbar />
     <main>
         <div className={styles.container}>
           <section>
@@ -30,33 +28,6 @@ function Main() {
               <div className={styles.picture3}></div>
             </div>
           </section>
-
-          
-          <div className={styles.container}>
-          <section>
-            <div className={styles.containersm}>
-              {/* Use the imported image here */}
-              <div className={styles.PopUpStickyNoteLogo}>
-                <img src={PopUpStickyNoteLogo} alt="Pop-up Sticky Note Logo" />
-              </div>
-              <div className={styles.sectiontitle}>
-                Now introducing <span className={styles.color}> Pop-up sticky notes</span>, which allows users to search across the web, copy and make custom notes.
-              </div>
-            </div>
-          </section>
-
-          <section>
-            <div className={styles.containersm}>
-              <div className={styles.sectiontitle}>
-                As well as <span className={styles.color}> Text Summarizer and Rephraser</span>, which allows users to summarize and rephrase difficult definitions to create ease.
-              </div>
-              {/* Use the imported image here */}
-              <div className={styles.ETextSummarization}>
-                <img src={ETextSummarization} alt="Pop-up Sticky Note Logo" />
-              </div>
-            </div>
-          </section>
-        </div>
    
           <section>
             <div className={styles.containerlast}>
