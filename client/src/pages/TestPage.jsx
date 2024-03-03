@@ -10,7 +10,7 @@ const Test = () => {
     OnloadingScreen: "",
   });
 
-  const generateForm = async () => {
+  const onload = async () => {
     const updatedData = { ...datasets, ...options };
     const [data, setData] = useState({
       text: "",
@@ -186,14 +186,14 @@ const Test = () => {
             onChange={optionthreeNameHandler}
             value={options.option3}
           />
+          <button type="button" onClick={setOptionsHandler}>
+            Set Options
+          </button>
           <input
             type="text"
             placeholder="Please write correct option as it is case-sensitve, Include spaces to compare the correct answer"
             onChange={correctOptionHandler}
           />
-          <button type="button" onClick={setOptionsHandler}>
-            Set Options
-          </button>
         </div>
         <button type="submit" onSubmit={onSubmissionHandler}>
           Add
