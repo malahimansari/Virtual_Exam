@@ -1,4 +1,4 @@
-import React , {useState} from "react";
+import React , {useEffect, useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import '../styles/forms.css';
 
@@ -10,50 +10,51 @@ const Test = () => {
     load: false,
     OnloadingScreen: ""
   });
-  // const generateForm = async () => {
-  //   const updatedData = {...datasets, ...options};
-  //   const [data, setData] = useState({
-  //     text: "",
-  //     options: ["", "", ""],
-  //     correctAnswer: ""
-  //   })
-  //   try {
-  //     const response = await fetch("http://localhost:8080/api/v1/questions", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(data)
-  //     })
-  //     setLoading({
-  //       load: true,
-  //       OnloadingScreen: "Exporting form......"
-  //     })
+  
+  const generateForm = async () => {
+    const updatedData = {...datasets, ...options};
+    const [data, setData] = useState({
+      text: "",
+      options: ["", "", ""],
+      correctAnswer: ""
+    })
+    try {
+      const response = await fetch("http://localhost:8080/api/v1/questions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data)
+      })
+      setLoading({
+        load: true,
+        OnloadingScreen: "Exporting form......"
+      })
 
-  //     const formdata = await response.json()
-  //     if (response.ok) {
-  //       setLoading({
-  //         load: false,
-  //         OnloadingScreen: "Exported!"
-  //       })
-  //       setData({
-  //         text: updatedData.title,
-  //         options: [updatedData.option1, updatedData.option2, updatedData.option3],
-  //         correctAnswer: updatedData.isCorrect
-  //       })
-  //     }
-  //     else if (formdata.errors) {
-  //       alert(formdata.errors[0].msg)
-  //     }
-  //     else {
-  //       alert(formdata.msg)
-  //     }
-  //   } catch (error) {
-  //     console.log(error, "Error while submitting");
-  //   }
+      const formdata = await response.json()
+      if (response.ok) {
+        setLoading({
+          load: false,
+          OnloadingScreen: "Exported!"
+        })
+        setData({
+          text: updatedData.title,
+          options: [updatedData.option1, updatedData.option2, updatedData.option3],
+          correctAnswer: updatedData.isCorrect
+        })
+      }
+      else if (formdata.errors) {
+        alert(formdata.errors[0].msg)
+      }
+      else {
+        alert(formdata.msg)
+      }
+    } catch (error) {
+      console.log(error, "Error while submitting");
+    }
     
    
-  // }
+  }
  
   
   // Preparing datasets for form by several states
@@ -182,7 +183,7 @@ const Test = () => {
           <input type="text" name="option1" placeholder="option1" onChange={optiononeNameHandler} value={options.option1}/>
           <input type="text" name="option2" placeholder="option2" onChange={optiontwoNameHandler} value={options.option2} />
           <input type="text" name="option3" placeholder="option3" onChange={optionthreeNameHandler} value={options.option3} />
-          <input type="text" placeholder="Please confirm correct option" onChange={correctOptionHandler}/>
+          <input type="text" placeholder="Please write correct option as it is case-sensitve, Include spaces to compare the correct answer" onChange={correctOptionHandler}/>
           <button type="button" onClick={setOptionsHandler}>Set Options</button>
          </div>
         <button type="submit" onSubmit={onSubmissionHandler}>Add</button>
@@ -192,7 +193,7 @@ const Test = () => {
       .sort((a, b) => a.id - b.id)
       .map((data) => {
         return (
-          <ul>
+          <ol>
           <li key={data.id}>
             <label>{data.title}</label>
             <br />
@@ -211,13 +212,15 @@ const Test = () => {
             </>}
           
           </li>
-        </ul>
+        </ol>
         )
       })}
 
       
      
-      <button type="button">Generate Form</button>
+      <button type="button" style={{
+        width: "150px"
+      }} onClick={generateForm}>Generate Form</button>
       <div>{loading.OnloadingScreen}</div>
 
       

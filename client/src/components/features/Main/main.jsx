@@ -1,18 +1,15 @@
 import React from 'react';
 import styles from './secone.module.css';
-import PopUpStickyNoteLogo from '../../../assets/Pop-up-Sticky-note-Logo-313.jpg'
-import ETextSummarization from '../../../assets/extractive-text-summarization.jpg'
-
-import Navbar from '../../common/Navbar/main';
+import Navbar from '../../common/Navbar/main'; 
 function Main() {
   return (
     <>
-    {/* <Navbar /> */}
+    <Navbar />
     <main>
         <div className={styles.container}>
           <section>
             <div className={styles.containersm}>
-              <div className={styles.sectiontitle}>Take your classes, exams, quizzes online, <span className={styles.color}> for students,faculty and admins</span></div>
+              <div className={styles.sectiontitle}>Online Examination, is now possible!! Provide Hassle free examination for students</div>
               <div className={styles.picture}></div>
             </div>
           </section>
@@ -20,7 +17,7 @@ function Main() {
           <section>
             <div className={styles.containersecond}>
             <div className={styles.picture2}></div>
-            <div className={styles.sectiontitle}>Tight Security, plagiarism enabled <span className={styles.color}> and provides cheating-free assessment</span></div>
+            <div className={styles.sectiontitle}>Real Time Monitoring enabled, cheaters can be easily detected by our security systems implemented by us</div>
             </div>
           </section>
   
@@ -31,33 +28,7 @@ function Main() {
             </div>
           </section>
 
-          
-          <div className={styles.container}>
-          <section>
-            <div className={styles.containersm}>
-              {/* Use the imported image here */}
-              <div className={styles.PopUpStickyNoteLogo}>
-                <img src={PopUpStickyNoteLogo} alt="Pop-up Sticky Note Logo" />
-              </div>
-              <div className={styles.sectiontitle}>
-                Now introducing <span className={styles.color}> Pop-up sticky notes</span>, which allows users to search across the web, copy and make custom notes.
-              </div>
-            </div>
-          </section>
-
-          <section>
-            <div className={styles.containersm}>
-              <div className={styles.sectiontitle}>
-                As well as <span className={styles.color}> Text Summarizer and Rephraser</span>, which allows users to summarize and rephrase difficult definitions to create ease.
-              </div>
-              {/* Use the imported image here */}
-              <div className={styles.ETextSummarization}>
-                <img src={ETextSummarization} alt="Pop-up Sticky Note Logo" />
-              </div>
-            </div>
-          </section>
-        </div>
-   
+        
           <section>
             <div className={styles.containerlast}>
               <div className={styles.sectionlasttitle}>Take assessments or join online assessments</div>

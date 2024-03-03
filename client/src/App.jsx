@@ -1,5 +1,4 @@
 import "./App.css";
-
 import Main from "./components/features/Main/main";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import About from "./pages/About";
@@ -10,6 +9,7 @@ import CreateTest from "./pages/TestPage";
 import Dashboard from "./pages/Dashboard";
 import { FormProvider } from "./context/FormProvider";
 import Quiz from "./pages/Quiz";
+
 
 function App() {
   return (
@@ -22,7 +22,6 @@ function App() {
         <Route path="/SignUp" element={<SignUp />}></Route>
         <Route path="/logOut" element={<LogOut />}></Route>
         <Route path="/createtest" element={<CreateTest />} />
-
         <Route path='/dashboard' element={<Dashboard />}></Route>
         <Route path='/quiz' element={<Quiz />}></Route>
       </Routes>

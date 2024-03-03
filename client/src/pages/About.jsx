@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import Navbar from '../components/common/Navbar/main';
 
+
 const Box = styled.div `
   padding: 2% 2%;
   background-color: darkcyan;

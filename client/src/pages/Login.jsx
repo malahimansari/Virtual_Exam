@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
 import styles from "../styles/signup.module.css";
+import Navbar from "../components/common/Navbar/main";
 const Login = () => {
   const navigate = useNavigate();
   const { storeTokenInLS } = useAuth();
@@ -45,6 +46,8 @@ const Login = () => {
     navigate("/");
   };
   return (
+    <>
+    <Navbar />
     <div className={styles.container}>
       <form id={styles.form} onSubmit={(event) => handleSubmit(event)}>
         <button className={styles.btnBack} onClick={navigator}>
@@ -80,6 +83,7 @@ const Login = () => {
         </button>
       </form>
     </div>
+    </>
   );
 };
 

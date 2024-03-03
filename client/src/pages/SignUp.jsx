@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
 import styles from "../styles/signup.module.css";
+import Navbar from "../components/common/Navbar/main";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -70,10 +71,12 @@ const SignUp = () => {
   };
 
   return (
+    <>
+    <Navbar />
     <div className={styles.container}>
       <form
         id={styles.form}
-        id={styles.form}
+       
         onSubmit={(event) => {
           handleSubmit(event);
         }}
@@ -144,6 +147,7 @@ const SignUp = () => {
         </button>
       </form>
     </div>
+    </>
   );
 };
 
