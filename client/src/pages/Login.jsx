@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
 import styles from "../styles/signup.module.css";
 import Navbar from "../components/common/Navbar/main";
+
+const VITE_API_URL = import.meta.env.VITE_API_URL;
+
 const Login = () => {
   const navigate = useNavigate();
   const { storeTokenInLS } = useAuth();
@@ -18,7 +21,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:8080/api/v1/auth/login", {
+      const response = await fetch(`${VITE_API_URL}/api/v1/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -47,42 +50,45 @@ const Login = () => {
   };
   return (
     <>
-    <Navbar />
-    <div className={styles.container}>
-      <form id={styles.form} onSubmit={(event) => handleSubmit(event)}>
-        <button className={styles.btnBack} onClick={navigator}>
-          Back
-        </button>
-        <h1>Login</h1>
-        <label htmlFor="email">Enter your email address</label>
-        <br />
-        <input
-          name="email"
-          type="email"
-          placeholder="name@example.com"
-          onChange={inputHandler}
-        />
-        <br />
-        <label htmlFor="password">Enter your password</label>
-        <br />
-        <p
-          style={{ display: wrongPassEntered ? "block" : "none", color: "red" }}
-        >
-          Wrong Credentials
-        </p>
-        <input
-          name="password"
-          type="password"
-          placeholder="password"
-          onChange={inputHandler}
-        />
-        <br />
+      <Navbar />
+      <div className={styles.container}>
+        <form id={styles.form} onSubmit={(event) => handleSubmit(event)}>
+          <button className={styles.btnBack} onClick={navigator}>
+            Back
+          </button>
+          <h1>Login</h1>
+          <label htmlFor="email">Enter your email address</label>
+          <br />
+          <input
+            name="email"
+            type="email"
+            placeholder="name@example.com"
+            onChange={inputHandler}
+          />
+          <br />
+          <label htmlFor="password">Enter your password</label>
+          <br />
+          <p
+            style={{
+              display: wrongPassEntered ? "block" : "none",
+              color: "red",
+            }}
+          >
+            Wrong Credentials
+          </p>
+          <input
+            name="password"
+            type="password"
+            placeholder="password"
+            onChange={inputHandler}
+          />
+          <br />
 
-        <button className={styles.btnSubmit} type="submit">
-          Login
-        </button>
-      </form>
-    </div>
+          <button className={styles.btnSubmit} type="submit">
+            Login
+          </button>
+        </form>
+      </div>
     </>
   );
 };
