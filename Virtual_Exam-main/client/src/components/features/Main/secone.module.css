@@ -89,36 +89,6 @@ main {
     text-align: center;
 }
 
-/* Styles for the first section */
-.Pop-up-Sticky-note-Logo {
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px; /* Add margin to create space between sections */
-}
-
-.Pop-up-Sticky-note-Logo img {
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 30px;
-}
-
-/* Styles for the second section */
-.ETextSummarization {
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px; /* Add margin to create space between sections */
-}
-
-.ETextSummarization img {
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 30px;
-}
-
 .sectionlasttitle {
     padding: 2% 0;
     margin-left: 15px;
